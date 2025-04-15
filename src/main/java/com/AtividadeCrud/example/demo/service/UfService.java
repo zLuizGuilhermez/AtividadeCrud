@@ -1,6 +1,6 @@
-package com.AtividadeCrud.example.demo.Service;
+package com.AtividadeCrud.example.demo.service;
 
-import com.AtividadeCrud.example.demo.Repository.UfRepository;
+import com.AtividadeCrud.example.demo.repository.UfRepository;
 import com.AtividadeCrud.example.demo.entity.UfEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

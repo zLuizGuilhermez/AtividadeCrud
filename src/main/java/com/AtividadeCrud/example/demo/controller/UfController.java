@@ -1,9 +1,8 @@
 package com.AtividadeCrud.example.demo.controller;
 
-import com.AtividadeCrud.example.demo.Service.UfService;
+import com.AtividadeCrud.example.demo.service.UfService;
 import com.AtividadeCrud.example.demo.dto.UfDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
