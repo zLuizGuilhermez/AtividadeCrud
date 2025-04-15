@@ -19,7 +19,7 @@ public class UfController {
     }
 
     @PutMapping("/alterarUf")
-    public void alterarUf(@RequestBody UfDto ufDto){ ufService.editarUf(ufDto.getNome(), ufDto.getSigla()); }
+    public void alterarUf(@RequestBody UfDto ufDto){ ufService.editarUf(ufDto.getId(), ufDto.getNome(), ufDto.getSigla()); }
 
     @GetMapping("/buscarUf/{sigla}")
     public UfEntity buscarUf(@PathVariable String sigla){ return ufService.buscarUfPorSigla(sigla); }

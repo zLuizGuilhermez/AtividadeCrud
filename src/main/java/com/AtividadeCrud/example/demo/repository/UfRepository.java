@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface UfRepository extends JpaRepository<UfEntity, Long> {
 
     Optional<UfEntity> findFirstBySigla(String sigla);
+
+    Optional<UfEntity> findFirstById(Integer id);
 }

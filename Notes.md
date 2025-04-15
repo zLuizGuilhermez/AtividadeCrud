@@ -5,6 +5,7 @@ Integrantes:
 - Luiz Guilherme Oliveira da Mota 
 - Mateus Bolivar Vieira Duarte 
 - Yago Mello Mesquita
+- Leonardo Louzada de Melo
 
 Criar o projeto
 

@@ -40,7 +40,7 @@ public class EstudanteService {
         estudanteRepository.save(estudanteEntity);
     }
 
-    public void alterarEstudante(String matricula, String nome, String email){
+    public String alterarEstudante(String matricula, String nome, String email){
         Optional<EstudanteEntity> resultadoFind = estudanteRepository.findFirstByMatricula(matricula);
 
         if (resultadoFind.isPresent()){
@@ -48,8 +48,11 @@ public class EstudanteService {
             estudanteEntity.setEmail(email);
             estudanteEntity.setNome(nome);
             estudanteRepository.save(estudanteEntity);
-        }
 
+            return "criado com sucesso";
+        }else{
+            return "não pode alterar";
+        }
 
     }
 

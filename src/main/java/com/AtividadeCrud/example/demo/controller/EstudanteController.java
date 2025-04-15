@@ -24,8 +24,8 @@ public class EstudanteController {
     }
 
     @PutMapping("/alterarEstudante")
-    void alterarEstudante(@RequestBody EstudanteDto estudanteDto){
-        estudanteService.alterarEstudante(estudanteDto.getMatricula(), estudanteDto.getNome(), estudanteDto.getEmail());
+    String alterarEstudante(@RequestBody EstudanteDto estudanteDto){
+        return estudanteService.alterarEstudante(estudanteDto.getMatricula(), estudanteDto.getNome(), estudanteDto.getEmail());
     }
 
     @DeleteMapping("/deletarEstudante/{matricula}")

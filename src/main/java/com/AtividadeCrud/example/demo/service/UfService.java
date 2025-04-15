@@ -21,8 +21,8 @@ public class UfService {
         ufRepository.save(ufEntity);
     }
 
-    public void editarUf(String nome, String sigla){
-        Optional <UfEntity> resultadoFind = ufRepository.findFirstBySigla(sigla);
+    public void editarUf(Integer id, String nome, String sigla){
+        Optional <UfEntity> resultadoFind = ufRepository.findFirstById(id);
 
         if(resultadoFind.isPresent()){
             UfEntity ufEntity = resultadoFind.get();
