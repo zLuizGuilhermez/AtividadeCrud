@@ -1,5 +1,6 @@
 package com.AtividadeCrud.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -23,6 +24,7 @@ public class EstudanteEntity {
 
     @ManyToOne
     @JoinColumn(name = "cidade_id", nullable = false)
+    @JsonIgnore
     private CidadeEntity cidade;
 
     public Integer getId() {

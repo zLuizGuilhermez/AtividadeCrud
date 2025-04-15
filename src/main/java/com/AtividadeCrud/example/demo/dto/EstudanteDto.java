@@ -14,6 +14,16 @@ public class EstudanteDto {
 
     private LocalDate dtNascimento;
 
+    private String nomeCidade;
+
+    public String getNomeCidade() {
+        return nomeCidade;
+    }
+
+    public void setNomeCidade(String nomeCidade) {
+        this.nomeCidade = nomeCidade;
+    }
+
     public String getNome() {
         return nome;
     }

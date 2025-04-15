@@ -1,5 +1,6 @@
 package com.AtividadeCrud.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -16,9 +17,11 @@ public class CidadeEntity {
 
     @ManyToOne
     @JoinColumn(name = "uf_id", nullable = false)
+    @JsonIgnore
     private UfEntity uf;
 
     @OneToMany(mappedBy = "cidade", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<EstudanteEntity> estudantes;
 
     public Integer getId() {

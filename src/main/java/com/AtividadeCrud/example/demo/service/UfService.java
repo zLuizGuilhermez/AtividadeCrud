@@ -5,6 +5,8 @@ import com.AtividadeCrud.example.demo.entity.UfEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UfService {
 
@@ -19,13 +21,27 @@ public class UfService {
         ufRepository.save(ufEntity);
     }
 
-    public void editarUf(){
-        // Implemente a lógica de edição aqui
+    public void editarUf(String sigla){
+        Optional <UfEntity> resultadoFind = ufRepository.findFirstBySigla(sigla);
+
+        if(resultadoFind.isPresent()){
+            UfEntity ufEntity = resultadoFind.get();
+
+        }
     }
 
     public UfEntity buscarUfPorSigla(String sigla) {
         return ufRepository.findFirstBySigla(sigla)
                 .orElseThrow(() -> new RuntimeException("UF não encontrada"));
+    }
+
+    public void removerUf(String sigla){
+        Optional <UfEntity> resultadoFind = ufRepository.findFirstBySigla(sigla);
+
+        if(resultadoFind.isPresent()){
+            UfEntity ufEntity = resultadoFind.get();
+            ufRepository.delete(ufEntity);
+        }
     }
 }
 

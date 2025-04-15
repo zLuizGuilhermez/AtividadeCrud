@@ -1,5 +1,6 @@
 package com.AtividadeCrud.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class UfEntity {
     private String sigla;
 
     @OneToMany(mappedBy = "uf", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<CidadeEntity> cidades;
 
     public Integer getId() {

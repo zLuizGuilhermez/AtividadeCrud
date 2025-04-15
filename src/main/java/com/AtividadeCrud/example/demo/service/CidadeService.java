@@ -1,11 +1,15 @@
 package com.AtividadeCrud.example.demo.service;
 
+import com.AtividadeCrud.example.demo.entity.EstudanteEntity;
 import com.AtividadeCrud.example.demo.repository.CidadeRepository;
 import com.AtividadeCrud.example.demo.entity.CidadeEntity;
 import com.AtividadeCrud.example.demo.entity.UfEntity;
+import com.AtividadeCrud.example.demo.repository.EstudanteRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.Optional;
 
@@ -27,6 +31,7 @@ public class CidadeService {
         cidadeRepository.save(cidadeEntity);
     }
 
+    @PutMapping("alterarCidade")
     public void alterarCidade(String nomeAtual, String nomeAtualizado) {
         Optional<CidadeEntity> cidadeEditada = cidadeRepository.findFirstByNome(nomeAtual);
 
@@ -39,17 +44,21 @@ public class CidadeService {
         }
     }
 
-    public void deletarCidade(String nome){
+    @DeleteMapping("RemoverCidade/{nome}")
+    public void removerCidade(String nome){
 
         Optional<CidadeEntity> cidadeDel = cidadeRepository.findFirstByNome(nome);
 
         if(cidadeDel.isPresent()){
-            e
+            CidadeEntity cidadeEntity = cidadeDel.get();
+            cidadeRepository.delete(cidadeEntity);
+
         }
     }
 
-    public UfEntity buscarCidadePorNome(String nome) {
-        return ufRepository.findFirstBySigla(sigla)
+
+    public CidadeEntity buscarCidadePorNome(String nome) {
+        return cidadeRepository.findFirstByNome(nome)
                 .orElseThrow(() -> new RuntimeException("UF não encontrada"));
     }
 }
